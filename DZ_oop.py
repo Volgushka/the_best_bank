@@ -3,25 +3,28 @@
 # если произведение гласных и согласных букв меньше или  равно длине слова, выводить все гласные, иначе согласные;  если число то, произведение суммы чётных цифр на длину  числа.
 # Длину строки и числа искать во втором методе
 
-class homework:
 
-    a = input()
+class Homework:
 
-    def __init__(self,a):
-        self.a = ''
+    def __init__(self, abc):
+        self.abc = abc
 
-    def metod1(self,a):
-        if a.isalha:
-            countS = sum(1 for x in input() if x in 'аоуеюяэи')
-            if countS* (metod2 - countS) <= metod2:
-                res = countS
+    def method1(self, abc):
+        if str(abc).isalpha():
+            count = sum(1 for x in str(abc) if x in 'аоуеюяэи')
+            if count * (self.method2(abc) - count) <= self.method2(abc):
+                res = count
             else:
-                res = metod2 - countS
-        if a.isdigit:
-            metod2 *len([1 for i in a if i%2 == 0])
+                res = self.method2(abc) - count
+        if str(abc).isdigit():
+            res = self.method2(abc) * sum([int(i) for i in str(abc) if int(i) % 2 == 0])
         return res
 
-    def metod2(self,a):
-        return len(a)
+    def method2(self, abc):
+        return int(len(str(abc)))
 
-print(metod1())
+
+home = Homework(input('Введите название объекта: ').lower())
+
+print(home.abc)
+print(home.method1(home.abc))
